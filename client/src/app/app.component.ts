@@ -3,11 +3,14 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AccountService } from './services/account.service';
 import { AppUser } from './Models/app-user.model';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    FormsModule, ReactiveFormsModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -34,9 +37,9 @@ export class AppComponent {
       name: this.NameCtrl.value
     }
 
-  //   this.accountService.register(user).subscribe({
-  //     next: (res) => console.log(res),
-  //     error: (err) => console.log(err)
-  //   });
+    //   this.accountService.register(user).subscribe({
+    //     next: (res) => console.log(res),
+    //     error: (err) => console.log(err)
+    //   });
   }
 }
