@@ -33,7 +33,7 @@ public class AccountRepository : IAccountRepository
     public async Task<List<AppUser>?> GetAllAsync(CancellationToken cancellationToken)
     {
         List<AppUser> appUsers = await _collection.Find
-        (new BsonDocument()).ToListAsync(cancellationToken);
+            (new BsonDocument()).ToListAsync(cancellationToken);
 
         if (appUsers.Count == 0)
             return null;

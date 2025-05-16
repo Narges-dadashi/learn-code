@@ -16,7 +16,7 @@ public class AccountController(IAccountRepository accountRepository) : Controlle
         if (user is null)
             return BadRequest("This email is already taken");
 
-        return user;
+        return Ok(user);
     }
 
     [HttpGet("get-all")]
