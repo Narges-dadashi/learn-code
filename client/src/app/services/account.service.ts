@@ -9,17 +9,17 @@ import { AppUser } from '../Models/app-user.model';
 export class AccountService {
   http = inject(HttpClient);
 
-  register(user: AppUser): Observable<AppUser> {
-    let userResponse: Observable<AppUser>
-    this.http.post<AppUser>('http://localhost:5000/api/account/register', user);
+  // register(user: AppUser): Observable<AppUser> {
+  //   let userResponse: Observable<AppUser>
+  //   this.http.post<AppUser>('http://localhost:5000/api/account/register', user);
 
-    return userResponse;
-  }
+  //   return userResponse;
+  // }
 
-  getAllMember(): Observable<AppUser[]> {
-    let membersResponse: Observable<AppUser[]>
-    this.http.get<AppUser[]>('http://localhost:5000/api/account/get-all');
+  // getAllMember(): Observable<AppUser[]> {
+  //   let membersResponse: Observable<AppUser[]>
+  //   this.http.get<AppUser[]>('http://localhost:5000/api/account/get-all');
 
-    return membersResponse;
-  }
+  //   return membersResponse;
+  // }
 }
