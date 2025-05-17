@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AccountService } from './services/account.service';
@@ -21,7 +20,7 @@ export class AppComponent {
   registerFg = this.fB.group({
     emailCtrl: ['', [Validators.required, Validators.email]],
     nameCtrl: ''
-  })
+  });
 
   get EmailCtrl(): FormControl {
     return this.registerFg.get('emailCtrl') as FormControl;
@@ -37,9 +36,11 @@ export class AppComponent {
       name: this.NameCtrl.value
     }
 
-    //   this.accountService.register(user).subscribe({
-    //     next: (res) => console.log(res),
-    //     error: (err) => console.log(err)
-    //   });
+    let registerResponse = this.accountService.register(user);
+
+    registerResponse.subscribe({
+      next: (res) => console.log(res),
+      error: (err) => console.log(err.error)
+    });
   }
 }
