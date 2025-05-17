@@ -9,6 +9,17 @@
 
             <button (click)="register()">Register</button>
             <button (click)="getAll()">GetAll</button>
+
+            {{appUser?.email}}
+            {{appUser?.name}}
+
+            @for (member of members; track $index) {
+            <ul>
+                <li>{{member.email}}</li>
+                <li>{{member.name}}</li>
+            </ul>
+
+            }
         </form>
     </div>
 </section>

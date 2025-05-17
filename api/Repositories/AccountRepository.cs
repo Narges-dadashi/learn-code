@@ -19,7 +19,7 @@ public class AccountRepository : IAccountRepository
 
     public async Task<AppUser?> RegisterAsync(AppUser userInput, CancellationToken cancellationToken)
     {
-        AppUser user = await _collection.Find<AppUser>(doc =>
+        AppUser? user = await _collection.Find<AppUser>(doc =>
             doc.Email == userInput.Email).FirstOrDefaultAsync(cancellationToken);
 
         if (user is not null)
@@ -27,7 +27,7 @@ public class AccountRepository : IAccountRepository
 
         await _collection.InsertOneAsync(userInput, null, cancellationToken);
 
-        return user;
+        return userInput;
     }
 
     public async Task<List<AppUser>?> GetAllAsync(CancellationToken cancellationToken)

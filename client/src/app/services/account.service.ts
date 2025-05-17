@@ -11,16 +11,16 @@ export class AccountService {
   private readonly _baseApiUrl: string = 'http://localhost:5000/api/';
 
   register(user: AppUser): Observable<AppUser> {
-    let userResponse: Observable<AppUser> =
+    let userResponse$: Observable<AppUser> =
       this.http.post<AppUser>(this._baseApiUrl + 'account/register', user);
 
-    return userResponse;
+    return userResponse$;
   }
 
   getAll(): Observable<AppUser[]> {
-    let membersResponse: Observable<AppUser[]> =
-      this.http.get<AppUser[]>(this._baseApiUrl + 'get-all');
+    let membersResponse$: Observable<AppUser[]> =
+      this.http.get<AppUser[]>(this._baseApiUrl + 'account/get-all');
 
-    return membersResponse;
+    return membersResponse$;
   }
 }

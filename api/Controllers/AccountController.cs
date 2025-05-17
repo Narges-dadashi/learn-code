@@ -14,7 +14,9 @@ public class AccountController(IAccountRepository accountRepository) : Controlle
         AppUser? user = await accountRepository.RegisterAsync(userInput, cancellationToken);
 
         if (user is null)
+        {
             return BadRequest("This email is already taken");
+        }
 
         return Ok(user);
     }
