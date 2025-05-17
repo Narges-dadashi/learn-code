@@ -17,7 +17,7 @@ export class AccountService {
     return userResponse;
   }
 
-  getAllMember(): Observable<AppUser[]> {
+  getAll(): Observable<AppUser[]> {
     let membersResponse: Observable<AppUser[]> =
       this.http.get<AppUser[]>(this._baseApiUrl + 'get-all');
 

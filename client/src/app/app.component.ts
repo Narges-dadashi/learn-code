@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { AccountService } from './services/account.service';
 import { AppUser } from './Models/app-user.model';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators 
 export class AppComponent {
   accountService = inject(AccountService);
   fB = inject(FormBuilder);
+  appUser: AppUser | undefined;
+  members: AppUser[] | undefined;
 
   registerFg = this.fB.group({
     emailCtrl: ['', [Validators.required, Validators.email]],
@@ -31,16 +34,30 @@ export class AppComponent {
   }
 
   register(): void {
-    let user: AppUser = {
+    let userIn: AppUser = {
       email: this.EmailCtrl.value,
       name: this.NameCtrl.value
     }
 
-    let registerResponse = this.accountService.register(user);
+    let userRes: Observable<AppUser> = this.accountService.register(userIn);
 
-    registerResponse.subscribe({
-      next: (res) => console.log(res),
-      error: (err) => console.log(err.error)
+    userRes.subscribe({
+      next: (response => {
+        this.appUser = response;
+        console.log(this.appUser);
+      })
+    })
+  }
+
+  getAll(): void {
+    let membersRes: Observable<AppUser[]> = this.accountService.getAll();
+
+    membersRes.subscribe({
+      next: (res => {
+        this.members = res;
+
+        console.log(res);
+      })
     });
   }
 }
