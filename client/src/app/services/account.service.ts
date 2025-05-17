@@ -8,18 +8,19 @@ import { AppUser } from '../Models/app-user.model';
 })
 export class AccountService {
   http = inject(HttpClient);
+  private readonly _baseApiUrl: string = 'http://localhost:5000/api/';
 
-  // register(user: AppUser): Observable<AppUser> {
-  //   let userResponse: Observable<AppUser>
-  //   this.http.post<AppUser>('http://localhost:5000/api/account/register', user);
+  register(user: AppUser): Observable<AppUser> {
+    let userResponse: Observable<AppUser> =
+      this.http.post<AppUser>(this._baseApiUrl + 'account/register', user);
 
-  //   return userResponse;
-  // }
+    return userResponse;
+  }
 
-  // getAllMember(): Observable<AppUser[]> {
-  //   let membersResponse: Observable<AppUser[]>
-  //   this.http.get<AppUser[]>('http://localhost:5000/api/account/get-all');
+  getAllMember(): Observable<AppUser[]> {
+    let membersResponse: Observable<AppUser[]> =
+      this.http.get<AppUser[]>(this._baseApiUrl + 'get-all');
 
-  //   return membersResponse;
-  // }
+    return membersResponse;
+  }
 }
