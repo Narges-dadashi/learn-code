@@ -39,9 +39,9 @@ export class AppComponent {
       name: this.NameCtrl.value
     }
 
-    let userRes: Observable<AppUser> = this.accountService.register(userIn);
+    let userRes$: Observable<AppUser> = this.accountService.register(userIn);
 
-    userRes.subscribe({
+    userRes$.subscribe({
       next: (response => {
         this.appUser = response;
         console.log(this.appUser);
@@ -50,9 +50,9 @@ export class AppComponent {
   }
 
   getAll(): void {
-    let membersRes: Observable<AppUser[]> = this.accountService.getAll();
+    let membersRes$: Observable<AppUser[]> = this.accountService.getAll();
 
-    membersRes.subscribe({
+    membersRes$.subscribe({
       next: (res => {
         this.members = res;
 

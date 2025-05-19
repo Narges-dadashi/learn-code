@@ -1,9 +1,3 @@
-using api.Interfaces;
-using api.Repositories;
-using api.Settings;
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
-
 var builder = WebApplication.CreateBuilder(args);
 
 #region MongoDbSettings

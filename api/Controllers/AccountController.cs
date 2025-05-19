@@ -1,7 +1,3 @@
-using api.Interfaces;
-using api.Models;
-using Microsoft.AspNetCore.Mvc;
-
 namespace api.Controllers;
 
 [ApiController]
