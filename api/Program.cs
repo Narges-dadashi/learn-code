@@ -1,22 +1,21 @@
-// var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
-// // Add services to the container.
+// Add services to the container.
 
-// builder.Services.AddControllers();
+builder.Services.AddControllers();
 
-// builder.Services.AddApplicationService(builder.Configuration);
-// builder.Services.AddRepositoryService();
+builder.Services.AddApplicationService(builder.Configuration);
 
-// var app = builder.Build();
+var app = builder.Build();
 
-// // Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline.
 
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
-// app.UseCors();
+app.UseCors();
 
-// app.UseAuthorization();
+app.UseAuthorization();
 
-// app.MapControllers();
+app.MapControllers();
 
-// app.Run();
+app.Run();
