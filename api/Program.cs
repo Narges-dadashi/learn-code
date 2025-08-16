@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddApplicationService(builder.Configuration);
+builder.Services.AddRepositoryService();
 
 var app = builder.Build();
 
