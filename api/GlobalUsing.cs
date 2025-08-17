@@ -8,3 +8,5 @@ global using MongoDB.Driver;
 global using api.Extensions;
 global using api.Interfaces;
 global using api.Repositories;
+global using MongoDB.Bson;
+global using MongoDB.Bson.Serialization.Attributes;
