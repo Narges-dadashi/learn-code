@@ -25,4 +25,15 @@ public class AccountRepository : IAccountRepository
 
         return Mappers.ConvertAppUserToLoggedInDto(userInput);
     }
+
+    public async Task<LoggedInDto?> LoginAsync(LoginDto userInput, CancellationToken cancellationToken)
+    {
+        AppUser user = await _collection.Find(doc =>
+            doc.Email == userInput.Email && doc.Password == userInput.Password).FirstOrDefaultAsync(cancellationToken);
+
+        if (user is null)
+            return null;
+
+        return Mappers.ConvertAppUserToLoggedInDto(user);
+    }
 }
