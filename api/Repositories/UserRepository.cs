@@ -13,16 +13,6 @@ public class UserRepository : IUserRepository
     }
     #endregion
 
-    public async Task<AppUser?> GetByIdAsync(string userId, CancellationToken cancellationToken)
-    {
-        AppUser? appUser = await _collection.Find(doc => doc.Id == userId).FirstOrDefaultAsync(cancellationToken);
-
-        if (appUser is null)
-            return null;
-
-        return appUser;
-    }
-
     public async Task<MemberDto?> UpdateByIdAsync(string userId, AppUser userInput, CancellationToken cancellationToken)
     {
         UpdateDefinition<AppUser> updateDef = Builders<AppUser>.Update
