@@ -6,6 +6,7 @@ public static class RepositoryServiceExtensions
     {
         services.AddScoped<IAccountRepository, AccountRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IMemberRepository, MemberRepository>();
 
         return services;
     }
