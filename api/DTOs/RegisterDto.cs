@@ -3,5 +3,6 @@ namespace api.DTOs;
 public record RegisterDto(
     string Email,
     string Password,
-    string ConfirmPassword
+    string ConfirmPassword,
+    DateOnly DateOfBirth
 );
