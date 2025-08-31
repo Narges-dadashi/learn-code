@@ -1,32 +1,25 @@
-div {
-    background: linear-gradient(to right, green, yellow, blue);
-    color: white;
+.d1 {
+    width: 300px;
     height: 300px;
-    margin: 40px;
+    background-color: yellowgreen;
+}
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-
-    * {
-        background-color: red;
-        margin: 20px;
-        padding: 10px;
-        flex: 1;
-        text-align: center;
-    }
-
-    .item-1 {
-        background-color: black;
-        align-self: flex-start;
-        border-radius: 10px;
-        font-weight: bold;
-        font-style: italic;
+@media only screen and (min-width: 480px) {
+    .d1 {
+        background-color: brown;
     }
 }
+
+@media only screen and (min-width: 800px) {
+    .d1 {
+        background-color: aqua;
+    }
+}
+
+
+
+
+
 
 
 
@@ -107,27 +100,5 @@ div {
 //     .form .login-button:active {
 //         transform: scale(0.95);
 //         box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
-//     }
-// }
-
-
-
-
-
-// section {
-//     display: flex;
-//     justify-content: center;
-
-//     .item-1 {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-
-//         form {
-//             display: flex;
-//             flex-direction: column;
-//             align-items: center;
-//             margin: 50px
-//         }
 //     }
 // }
