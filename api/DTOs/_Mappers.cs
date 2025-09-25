@@ -15,11 +15,12 @@ public static class Mappers
             Country: ""
         );
     }
-    public static LoggedInDto ConvertAppUserToLoggedInDto(AppUser appUser)
+    public static LoggedInDto ConvertAppUserToLoggedInDto(AppUser appUser, string tokenValue)
     {
         return new(
             Email: appUser.Email,
-            Name: appUser.Name
+            Name: appUser.Name,
+            Token: tokenValue
         );
     }
 
