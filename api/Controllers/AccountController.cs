@@ -1,5 +1,3 @@
-using api.Controllers.Helpers;
-
 namespace api.Controllers;
 
 [ApiController]
@@ -31,6 +29,7 @@ public class AccountController(IAccountRepository accountRepository) : BaseApiCo
         return loggedInDto;
     }
 
+    [Authorize]
     [HttpDelete("delete/{userId}")]
     public async Task<ActionResult<DeleteResult>> DeleteById(string userId, CancellationToken cancellationToken)
     {
