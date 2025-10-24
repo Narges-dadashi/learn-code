@@ -10,18 +10,7 @@ public class AppUser
     public string Name { get; init; } = string.Empty;
     public string Password { get; init; } = string.Empty;
     public string ConfirmPassword { get; init; } = string.Empty;
-    public DateTime LastActive { get; init; }
+    public DateOnly DateOfBirth { get; init; }
     public string Gender { get; init; } = string.Empty;
     public string Country { get; init; } = string.Empty;
 }
-
-// public record AppUser(
-// [property: BsonId, BsonRepresentation(BsonType.ObjectId)] string? Id,
-// [EmailAddress] string Email,
-// string Name,
-// string Password,
-// string ConfirmPassword,
-// DateOnly DateOfBirth,
-// string Gender,
-// string Country
-// );

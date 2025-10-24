@@ -4,17 +4,15 @@ public static class Mappers
 {
     public static AppUser ConvertRegisterDtoToAppUser(RegisterDto registerDto)
     {
-        return new AppUser(
-            Id: null,
-            Email: registerDto.Email,
-            Password: registerDto.Password,
-            ConfirmPassword: registerDto.ConfirmPassword,
-            DateOfBirth: registerDto.DateOfBirth,
-            Name: "",
-            Gender: "",
-            Country: ""
-        );
+        return new AppUser
+        {
+            Email = registerDto.Email.Trim().ToLowerInvariant(),
+            Password = registerDto.Password,
+            ConfirmPassword = registerDto.ConfirmPassword,
+            DateOfBirth = registerDto.DateOfBirth
+        };
     }
+
     public static LoggedInDto ConvertAppUserToLoggedInDto(AppUser appUser, string tokenValue)
     {
         return new(
