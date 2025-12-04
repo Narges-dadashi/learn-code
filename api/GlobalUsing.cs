@@ -18,3 +18,5 @@ global using Microsoft.AspNetCore.Authorization;
 global using api.Controllers.Helpers;
 global using System.Text.Json;
 global using api.Models.Helpers;
+global using AspNetCore.Identity.MongoDbCore.Models;
+global using MongoDbGenericRepository.Attributes;
