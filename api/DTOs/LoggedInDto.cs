@@ -1,7 +1,7 @@
 namespace api.DTOs;
 
-public record LoggedInDto(
-    string Email,
-    string Name,
-    string Token
-);
+public class LoggedInDto{
+    public string? Email { get; init; }
+    public string? Name { get; init; }
+    public string? Token { get; init; }
+}
