@@ -15,11 +15,12 @@ public static class Mappers
 
     public static LoggedInDto ConvertAppUserToLoggedInDto(AppUser appUser, string tokenValue)
     {
-        return new(
-            Email: appUser.Email,
-            Name: appUser.Name,
-            Token: tokenValue
-        );
+        return new LoggedInDto
+        {
+            Email = appUser.Email,
+            Name = appUser.Name,
+            Token = tokenValue
+        };
     }
 
     public static MemberDto ConvertAppUserToMemberDto(AppUser appUser)
