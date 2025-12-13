@@ -1,11 +1,8 @@
 namespace api.Models;
 
-public class AppUser
+[CollectionName("users")]
+public class AppUser : MongoIdentityUser<ObjectId>
 {
-    [property: BsonId, BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; init; }
-    [EmailAddress]
-    public string Email { get; init; } = string.Empty;
     [StringLength(30, MinimumLength = 3)]
     public string Name { get; init; } = string.Empty;
     public string Password { get; init; } = string.Empty;
